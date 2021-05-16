@@ -23,7 +23,7 @@ const MealInputForm = () => {
 
         resetState();
 
-        console.log('ran addMeal method');
+        console.log("Added meal to db");
     }
 
     const resetState = () => {
