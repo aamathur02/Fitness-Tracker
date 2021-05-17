@@ -21,23 +21,23 @@ const PersonalInfo = () => {
     
 
     useEffect(() => {
-            var docRef = firestore.collection("Personal Info").doc("Info");
+        var docRef = firestore.collection("Personal Info").doc("Info");
 
-            docRef.get().then(function(doc) {
-            if (doc.exists) {
-                console.log(doc.get("age")['age']);
-                setAge(doc.get("age")['age']);
-                setFirstName(doc.get("firstName")['firstName']);
-                setLastName(doc.get("lastName")['lastName']);
-                setGoal(doc.get("goal")['goal']);
-                
-            } else {
-                // doc.data() will be undefined in this case
-                console.log("No such document!");
-            }
-            }).catch(function(error) {
-                console.log("Error getting document:", error);
-            });
+        docRef.get().then(function(doc) {
+        if (doc.exists) {
+            console.log(doc.get("age")['age']);
+            setAge(doc.get("age")['age']);
+            setFirstName(doc.get("firstName")['firstName']);
+            setLastName(doc.get("lastName")['lastName']);
+            setGoal(doc.get("goal")['goal']);
+            
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
+        }).catch(function(error) {
+            console.log("Error getting document:", error);
+        });
     }, []);
 
     const updateInfo = (event) => {
