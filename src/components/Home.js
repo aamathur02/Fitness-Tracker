@@ -6,8 +6,13 @@ import {BrowserRouter as Router, Switch, Link, Route} from "react-router-dom";
 import PersonalInfo from "./PersonalInfo"
 import MealInputForm from "./MealInputForm"
 
+import { Stack, HStack, VStack } from "@chakra-ui/react"
+import { Heading } from "@chakra-ui/react"
+
+
 const Home = () => {
     const[userName, setUserName] = useState("");
+    const[calorieGoal, setCalorieGoal] = useState(0);
 
     useEffect(() => {
         var docRef = firestore.collection("Personal Info").doc("Info");
@@ -26,9 +31,17 @@ const Home = () => {
 
     return(
         <div>
-
+        <Stack spacing={6}>
+            <Heading as="h1" size="4xl" isTruncated>
+                Welcome, {userName}
+            </Heading>
+            <Heading as="h2" size="3xl" isTruncated>
+                Your daily calories goal is {calorieGoal}
+            </Heading>
+        </Stack>
         <div className="homePage">
             <p> Welcome, {userName}</p>
+            <p> Your daily calories goal is {calorieGoal}</p>
         </div>
 
         <Router>
