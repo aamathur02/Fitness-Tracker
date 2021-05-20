@@ -19,7 +19,7 @@ const Home = () => {
 
         docRef.get().then(function(doc) {
         if (doc.exists) {
-            setUserName(doc.get("firstName")['firstName']);
+            setUserName(doc.get("firstName"));
         } else {
             // doc.data() will be undefined in this case
             console.log("No such document!");

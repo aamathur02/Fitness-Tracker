@@ -25,11 +25,11 @@ const PersonalInfo = () => {
 
         docRef.get().then(function(doc) {
         if (doc.exists) {
-            console.log(doc.get("age")['age']);
+            console.log(doc.get("age"));
             setAge(doc.get("age")['age']);
-            setFirstName(doc.get("firstName")['firstName']);
-            setLastName(doc.get("lastName")['lastName']);
-            setGoal(doc.get("goal")['goal']);
+            setFirstName(doc.get("firstName"));
+            setLastName(doc.get("lastName"));
+            setGoal(doc.get("goal"));
             
         } else {
             // doc.data() will be undefined in this case
@@ -44,10 +44,10 @@ const PersonalInfo = () => {
         event.preventDefault();
 
         firestore.collection("Personal Info").doc("Info").update({
-            age: {age},
-            firstName: {firstName},
-            lastName: {lastName},
-            goal: {goal}
+            age: age,
+            firstName: firstName,
+            lastName: lastName,
+            goal: goal
         });
 
         console.log("Updated personal info");

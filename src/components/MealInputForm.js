@@ -13,12 +13,12 @@ const MealInputForm = () => {
     const addMeal = (event) => {
         event.preventDefault();
 
-        firestore.collection("Meals").add({
-            Name: {name},
-            Calories: {calories},
-            Protein: {protein},
-            Carbohydrates: {carbohydrates},
-            Fat: {fat}
+        firestore.collection("Meals").doc(name).set({
+            Name: name,
+            Calories: parseInt(calories),
+            Protein: parseInt(protein),
+            Carbohydrates: parseInt(carbohydrates),
+            Fat: parseInt(fat)
         });
 
         resetState();
