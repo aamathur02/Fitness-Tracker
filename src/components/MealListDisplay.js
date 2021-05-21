@@ -1,4 +1,9 @@
 import React, {useState, useEffect} from 'react';
+
+import { Table, Thead, Tbody, Tr, Th, Td, chakra } from "@chakra-ui/react"
+import { TriangleDownIcon, TriangleUpIcon } from "@chakra-ui/icons"
+import { useTable, useSortBy } from "react-table"
+
 import {firestore} from './firebase'
 
 const MealListDisplay = () => {
@@ -17,7 +22,7 @@ const MealListDisplay = () => {
      
     const runQuery = () => {
         console.log("started query")
-        var ref = firestore.collection("Meals").where("Calories", ">=", 0);
+        var ref = firestore.collection("Meals").orderBy("Calories");
         ref.get()
         .then((querySnapshot)=> {
             querySnapshot.forEach((doc) => {
