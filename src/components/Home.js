@@ -4,7 +4,7 @@ import {firestore} from './firebase'
 import {BrowserRouter as Router, Switch, Link, Route} from "react-router-dom";
 
 import PersonalInfo from "./PersonalInfo"
-import MealInputForm from "./MealInputForm"
+import MealInputForm from "./Meals/MealInputForm"
 
 import { Stack, HStack, VStack } from "@chakra-ui/react"
 import { Heading } from "@chakra-ui/react"

@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import {firestore} from './firebase'
+import {firestore} from '../firebase'
 
 
-const MealInputForm = () => {
+function MealInputForm (props) {
     const [name, setName] = useState("");
     const [calories, setCalories] = useState(0);
     const [protein, setProtein] = useState(0);
